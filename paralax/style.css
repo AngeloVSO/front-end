@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #000;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 10;
+}
+
+.logo{
+    color: whitesmoke;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.menu img{
+    cursor: pointer;
+    width: 40px;
+}
+
+.bg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+.bird{
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    max-height: 80%;
+    z-index: 100;
+}
+
+.content{
+    position: relative;
+    z-index: 10;
+    max-width: 880px;
+    padding: 0 100px;
+}
+
+.content h2{
+    font-size: 3em;
+    line-height: 2em;
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+.content h2 span{
+    font-size: 3.5em;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.content p{
+    color: whitesmoke;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
+.linkJoin{
+    position: absolute;
+    left: -60px;
+    padding: 20px 20px;
+    color: green;
+    background: whitesmoke;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+    z-index: 10;
+    transform: rotate(-90deg);
+}
+
+.linkJoin:hover{
+    box-shadow: 1px 3px 6px rgba(255, 255, 255, 0.623),
+    -1px -3px 6px rgba(255, 255, 255, 0.664);
+}
+
+.socialMedia{
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    list-style: none;
+    text-align: center;
+    padding: 10px 10px;
+    background: whitesmoke;
+}
+
+.socialMedia li a{
+    display: inline-block;
+    transform: scale(0.5);
+    transition: .3s;
+}
+
+.socialMedia li a:hover{
+    transform: scale(0.8);
+}
+
+.textBot{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    padding: 0 100px;
+}
+
+.bottom{
+    position: relative;
+    padding: 10px 20px;
+    margin-right: 40px;
+    max-width: 500px;
+    background: rgba(0, 255, 0, .2);
+    color: whitesmoke;
+}
+
+.bottom h3{
+    letter-spacing: 1px;
+}
