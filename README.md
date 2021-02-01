@@ -1,2 +1,3 @@
-# front-end
-HTML, CSS e JS front-end projects.
+# Front-end Projects
+
+In this repository, i will pratice my skills in HTML, CSS and JS.
