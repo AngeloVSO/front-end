@@ -8,35 +8,29 @@ const overlay = {
   },
 };
 
-const transactions = [
-  {
-    id: 1,
-    description: "Luz",
-    amount: -50000,
-    date: "23/01/2021",
-  },
-  {
-    id: 2,
-    description: "Website",
-    amount: 500000,
-    date: "23/01/2021",
-  },
-  {
-    id: 3,
-    description: "Internet",
-    amount: -20000,
-    date: "23/01/2021",
-  },
-  {
-    id: 4,
-    description: "App",
-    amount: 200000,
-    date: "23/01/2021",
-  },
-];
-
 const balance = {
-  all: transactions,
+  all: [
+    {
+      description: "Luz",
+      amount: -50000,
+      date: "23/01/2021",
+    },
+    {
+      description: "Website",
+      amount: 500000,
+      date: "23/01/2021",
+    },
+    {
+      description: "Internet",
+      amount: -20000,
+      date: "23/01/2021",
+    },
+    {
+      description: "App",
+      amount: 200000,
+      date: "23/01/2021",
+    },
+  ],
   
   add(transaction) {
     balance.all.push(transaction);
@@ -44,7 +38,9 @@ const balance = {
   },
 
   remove(index) {
-    
+    balance.all.splice(index, 1);
+
+    app.reload();
   },
 
   input() {
@@ -79,12 +75,13 @@ const DOM = {
 
   addTransaction(transaction, index) {
       const tr = document.createElement('tr');
-      tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+      tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
+      tr.dataset.index = index;
 
       DOM.transactionsContent.appendChild(tr);
   },
   
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CssClass = transaction.amount > 0 ? "cashIn" : "cashOut";
 
     const amount = utils.formatCurrency(transaction.amount);
@@ -94,7 +91,7 @@ const DOM = {
         <td class="${CssClass}">${amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
-          <img src="./images/assets/minus.svg" alt="Remover transação" />
+          <img onclick="balance.remove(${index})" src="./images/assets/minus.svg" alt="Remover transação" />
         </td>
     `;
     return html
@@ -111,6 +108,17 @@ const DOM = {
 };
 
 const utils = {
+  formatAmount(value) {
+    value = Number(value)*100;
+    
+    return value;
+  },
+
+  formatDate(date) {
+    const splitDate = date.split("-");
+    return `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`;
+  },
+
   formatCurrency(value) {
     const signal = Number(value) < 0 ? "-" : "";
     
@@ -127,10 +135,69 @@ const utils = {
   }
 }
 
+const form = {
+  description: document.getElementById("description"),
+  amount: document.getElementById("amount"),
+  date: document.getElementById("date"),
+
+  getValues() {
+    return {
+      description: form.description.value,
+      amount: form.amount.value,
+      date: form.date.value,
+    }
+  },
+
+  formatData() {
+    let {description, amount, date} = form.getValues();
+    amount = utils.formatAmount(amount);
+    date = utils.formatDate(date);
+
+    return {
+      description, amount, date
+    }
+  },
+
+  validateField() {
+    const {description, amount, date} = form.getValues();
+    
+    if(description.trim() === "" || amount.trim() === "" || date.trim() === "") {
+      throw new Error("Preencha todos o campos.")
+    }
+
+  },
+
+  saveTransaction(transaction) {
+    balance.add(transaction);
+  },
+
+  clearField() {
+    form.description.value = "";
+    form.amount.value = "";
+    form.date.value = "";
+  },
+  
+  submit(event) {
+    event.preventDefault();
+
+    try {
+      form.validateField();
+      const transaction = form.formatData();
+      form.saveTransaction(transaction);
+      form.clearField();
+      overlay.close();
+
+    } catch (error) {
+      alert(error.message);
+    }
+    
+  }
+}
+
 const app = {
   init() {
-    balance.all.forEach(transaction => {
-      DOM.addTransaction(transaction);
+    balance.all.forEach((transaction, index) => {
+      DOM.addTransaction(transaction, index);
     })
     
     DOM.updateBalance()
@@ -143,10 +210,3 @@ const app = {
 };
 
 app.init();
-
-balance.add({
-    id: 7,
-    description: "Celular",
-    amount: -5000,
-    date: "23/01/2021",
-});
