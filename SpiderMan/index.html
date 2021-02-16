@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500&amp;display=swap" rel="stylesheet">
+    <title>Spider-Man | Miles Morales</title>
+</head>
+<body>
+    <header>
+        <div class="navMenu">
+            <div class="menu">
+                <div class="logo">
+                    <img src="./images/logo-spidermanbig.svg" alt="">
+                </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Início</a></li>
+                            <li><a href="#">História</a></li>
+                            <li><a href="#">Galeria</a></li>
+                            <li><a href="#">#BEYOURSELF</a></li>
+                        </ul>
+                    </nav>
+            </div>
+            <div class="socialMedia">
+                <ul>
+                    <li><a href="#"><img src="./images/github.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/instagram.png" alt=""></a></li>
+                    <li><a href="#"><img src="./images/linkedin.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="bgVideo">
+        <div class="video">
+            <video src="./video/spiderman2.mp4" autoplay muted loop></video>
+        </div>
+    </section>
+    <section class="container">
+        <div class="content">
+            <p>
+                <img src="./images/spiderman-text.png" alt="">
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, rem. Soluta, iste. Non hic commodi neque rem laboriosam! Voluptas accusamus nesciunt impedit dolorum iste aut aperiam culpa, tempore vel iure eveniet consectetur dolorem.
+            </p>
+            <p>
+                <a href="#" class="buy">Compre Agora</a>
+                <a href="#" class="watch" >Assista o trailer</a>
+            </p>
+        </div>
+        <div class="spider">
+            <img id="spider" src="./images/spider-man.png" alt="">
+        </div>
+    </section>
+    <!-- <script>
+        const spider = document.getElementById("spider");
+        document.addEventListener("mousemove", function(e){
+            spider.style.left = 400 + e.pageY/10 + 'px';
+            spider.style.right = 400 + e.pageY/10 + 'px';
+            spider.style.top = 0 + e.pageY/40 + 'px';
+            spider.style.bottom = 0 + e.pageY/40 + 'px';
+            
+        })
+    </script> -->
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script>
+        VanillaTilt.init(document.getElementById("spider"), {
+		max: 15,
+		speed: 400
+	});
+    </script>
+</body>
+</html>
