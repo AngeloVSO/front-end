@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mukta', sans-serif;
+}
+
+header,.menu, ul, nav {
+    display: flex;
+    list-style: none;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+nav {
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.menu {
+    display: flex;
+    padding-top: 15px;
+    justify-content: start;
+}
+
+.navMenu {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: min(1440px, 100%);
+}
+
+nav ul li {
+    margin-left: 24px;
+}
+
+nav ul li a {
+    display: flex;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    align-items: flex-end;
+    height: 100px;
+    padding: 8px 16px;
+    color: #959698;
+    text-transform: uppercase;
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+    position: relative;
+    bottom: 35%;
+}
+
+nav ul li a::before {
+    content: '';
+    height: 50px;
+    width: 2px;
+    background: rgb(111,14,16);
+    background: linear-gradient(180deg, rgb(19, 2, 2) 30%, rgba(234,29,34,1) 100%);
+    position: absolute;
+    left: 50%;
+    top: -55px;
+    transition: .5s linear;
+    opacity: 0;
+}
+
+nav ul li a:hover::before {
+    opacity: 1;
+    top: 5px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    color: whitesmoke;
+    
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+}
+
+.socialMedia img {
+    width: 22px;
+    margin-left: 16px;
+    filter: invert(1);
+    opacity: .8;
+    transition: .7s ease;
+}
+
+.socialMedia img:hover {
+    transform: translateY(-7px);
+}
+
+.socialMedia a {
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+}
+
+/* bg video ==================================== */
+
+.bgVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.bgVideo::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: radial-gradient( #0A0C10 0%, rgba(11, 12, 16, 0.7) 30%, #0A0C10 70%);
+}
+
+.video {
+    width: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+/* Conteúdo principal ================================================ */
+
+.container {
+    max-width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    overflow: hidden;
+}
+
+.content {
+    max-width: 580px;
+    justify-self: center;
+    align-items: flex-start;
+    
+}
+
+.content p {
+    font-size: 14px;
+    color: #959698;
+    letter-spacing: 1px;
+    line-height: 140%;
+    padding: 6px 0;
+}
+
+.content img {
+    display: block;
+    width: 100%;
+}
+
+.spider img {
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    width: 70%;
+    
+}
+
+.content .buy {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    transform: skewX(-10deg);
+    transition: .7s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    border: 2px solid #ea1d22;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #ea1d22;
+}
+
+.content .watch {
+    background-color:transparent;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 30px;
+    border-radius: 3px;
+    font-size: 16px;
+    transform: skewX(-10deg);
+    transition: .7s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    border: 2px solid #ea1d22;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.content .watch::before {
+    transition: all .7s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    background-color: #ea1d22;
+    z-index: -1;
+}
+
+.content .watch:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transition: .7s all ease;
+}
