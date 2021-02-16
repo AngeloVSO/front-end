@@ -1,0 +1,228 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #641b4e;
+}
+
+/* menu navegável +=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=+ */
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+ 
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: #feb417 url(./images/menu.png);
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 200;
+    transition: .3s;
+}
+
+.menu.active {
+    background-image: url(./images/close.png);
+    z-index: 100000;
+}
+
+.menuNav {
+    position: fixed;
+    top: 0;
+    left: calc(100% - 60px);
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 199;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.menuNav.active {
+    left: 0;
+    transition: .3s;
+}
+
+.menuNav ul {
+    position: relative;
+}
+
+.menuNav ul li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+}
+
+.menuNav ul li a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #111;
+    font-weight: 400;
+    transition: .3s;
+}
+
+.menuNav ul li a:hover {
+    color: #feb417;
+}
+
+/* Redes sociais do menu navegável +=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=+ */
+
+.socialMedia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialMedia i {
+    font-size: 2rem;
+    margin: 15px 0;
+    color: #641b4e;
+    transition: .5s;
+}
+
+.socialMedia i:hover {
+    color: #feb417;
+}
+
+.socialMedia a {
+    transition: .5s;
+}
+
+.socialMedia a:hover {
+    transform: scale(1.4);
+} 
+
+/* Conteúdo principal +=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=+ */
+
+.content {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    min-height: 100%;
+    padding: 100px;
+}
+
+.logo {
+    position: fixed;
+    top: 30px;
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.content img {
+    position: absolute;
+    top: 0;
+    right: 60px;
+    height: 100vh;
+}
+
+.textContent {
+    position: relative;
+    max-width: 650px;
+    z-index: 1;
+}
+
+.textContent h1 {
+    color: whitesmoke;
+    font-size: 2.6rem;
+    line-height: 1.2;
+}
+
+.textContent p {
+    color: whitesmoke;
+    opacity: .9;
+    margin: 20px 0px 10px;
+}
+
+.textContent a {
+    padding: 10px 30px;
+    background-color: #feb417;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #feb417;
+    color: #fff;
+    box-shadow: inset 0 0 0 0 #641b4e;
+    transition: .3s;
+}
+
+.textContent a:hover {
+    box-shadow: inset 122px 0 0 0 #641b4e;
+
+}
+
+/* rodapé +=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=+ */
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    font-weight: 500;
+    color: whitesmoke;
+}
+
+/* Responsividade +=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=++=+ */
+
+@media (max-width: 767px) {
+    .menuNav {
+        left: 100%;
+    }
+
+    .logo {
+        top: 15px;
+        font-size: 1.4rem;
+    }
+
+    .content {
+        padding: 100px 40px;
+        min-height: 700px;
+    }
+
+    .content img {
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: .5;
+    }
+
+    .textContent h1 {
+        font-size: 2.2rem;
+    }
+
+    footer {
+        left: 40px;
+    }
+    
+}
