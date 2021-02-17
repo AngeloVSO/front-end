@@ -30,15 +30,13 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 16px 0;
+    padding: 0 3rem;
     z-index: 30;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent)
 }
 
 nav .container {
-    max-width: 70rem;
-    padding: 0 2rem;
-    margin: 0 auto;   
+    margin: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,6 +99,7 @@ nav .container {
     font-size: 5rem;
     font-weight: 600;
     color: #fff;
+    transition: .4s;
 }
 
 .person {
@@ -155,6 +154,7 @@ section .container > * {
 }
 
 section .container {
+    min-height: 100vh;
     padding: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -176,11 +176,12 @@ section .container {
 
 .border {
     position: absolute;
-    width: 25%;
+    width: 0%;
     height: 3px;
     background-color: #fff;
     bottom: 0;
     left: 0;
+    transition: .4s;
 }
 
 section img {
@@ -195,4 +196,16 @@ section img {
     left: 0;
     z-index: 20;
     background: linear-gradient(to top, #1a1a1a, transparent);
+}
+
+/* =========================== responsividade ==================================== */
+
+@media (max-width: 900px) {
+    section .container {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 3.5rem;
+    }
 }
