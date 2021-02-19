@@ -5,6 +5,10 @@
     font-family: 'Mukta', sans-serif;
 }
 
+body {
+    background-color: #0A0C10;
+}
+
 header,.menu, ul, nav {
     display: flex;
     list-style: none;
@@ -154,13 +158,14 @@ video {
     align-items: center;
     padding: 0 16px;
     overflow: hidden;
+    position: relative;
 }
 
 .content {
     max-width: 580px;
     justify-self: center;
     align-items: flex-start;
-    
+    margin-bottom: 32px;
 }
 
 .content p {
@@ -169,6 +174,7 @@ video {
     letter-spacing: 1px;
     line-height: 140%;
     padding: 6px 0;
+    margin-bottom: 8px;
 }
 
 .content img {
@@ -176,18 +182,24 @@ video {
     width: 100%;
 }
 
+.spider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 .spider img {
+    display: block;
     position: absolute;
-    top: 0px;
-    right: -20px;
-    width: 70%;
+    top: 30px;
+    left: -120px;
+    width: 120%;
     
 }
 
-.content .buy {
+.content .btn-buy {
     cursor: pointer;
     display: inline-block;
-    margin-right: 20px;
     padding: 10px 30px;
     border-radius: 3px;
     font-size: 16px;
@@ -202,11 +214,15 @@ video {
     background-color: #ea1d22;
 }
 
-.content .watch {
+.btn {
+    display: flex;
+}
+
+.btn .btn-watch {
     background-color:transparent;
     cursor: pointer;
     display: inline-block;
-    margin-right: 20px;
+    margin-left: 20px;
     padding: 10px 30px;
     border-radius: 3px;
     font-size: 16px;
@@ -221,7 +237,7 @@ video {
     
 }
 
-.content .watch::before {
+.btn .btn-watch::before {
     transition: all .7s ease;
     content: '';
     position: absolute;
@@ -233,9 +249,51 @@ video {
     z-index: -1;
 }
 
-.content .watch:hover::before {
+.btn .btn-watch:hover::before {
     left: 0;
     right: 0;
     opacity: 1;
     transition: .7s all ease;
+}
+
+@media screen and (max-width: 960px) {
+    nav, .socialMedia {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+        padding-top: 150px;
+        height: auto;
+    }
+
+    .content {
+        order: 2;
+        display: inline-block;
+    }
+
+    .spider {
+      min-height: 500px;   
+    }
+
+    .spider img {
+        width: 100%;
+        left: 0;
+    }
+
+    video {
+        width: 190%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .spider {
+        min-height: 300px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .btn .btn-buy, .btn .btn-watch {
+        padding: 10px 20px;
+    }
 }
