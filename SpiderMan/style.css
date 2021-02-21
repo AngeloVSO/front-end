@@ -27,6 +27,7 @@ nav {
 }
 
 .logo {
+    height: 100px;
     width: 100px;
 }
 
@@ -34,6 +35,7 @@ nav {
     display: flex;
     padding-top: 15px;
     justify-content: start;
+    align-items: center;
 }
 
 .navMenu {
@@ -41,6 +43,7 @@ nav {
     margin: 0 auto;
     justify-content: space-between;
     width: min(1440px, 100%);
+    align-items: center;
 }
 
 nav ul li {
@@ -259,6 +262,80 @@ video {
 @media screen and (max-width: 960px) {
     nav, .socialMedia {
         display: none;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .logo {
+        animation: slideleft .5s ease-in-out forwards;
+    }
+
+    .menuHmburger {
+        margin-right: 30px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        padding: 5px 0;
+        opacity: 0;
+        animation: slideright .5s ease-in-out forwards;
+        animation-delay: .5s;
+    }
+
+    .btnMenu {
+        width: 25px;
+        height: 4px;
+        border-radius: 3px;
+        background-color: #fff;
+    }
+
+    .btnMenu::before{
+        position: absolute;
+        content: '';
+        width: 35px;
+        height: 4px;
+        top: calc(50% - 2px);
+        right: 3px;
+        border-radius: 3px;
+        background-color: #fff;
+    }
+
+    .btnMenu::after{
+        position: absolute;
+        content: '';
+        width: 25px;
+        height: 4px;
+        top: calc(100% - 9px);
+        right: 0;
+        border-radius: 3px;
+        background-color: #fff;
+        left: 0;
+    }
+
+    @keyframes slideright {
+        0%{
+            transform: translateX(150px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideleft {
+        0%{
+            transform: translateX(-150px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
+        }
     }
 
     .container {
