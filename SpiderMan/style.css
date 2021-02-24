@@ -29,6 +29,7 @@ nav {
 .logo {
     height: 100px;
     width: 100px;
+    cursor: pointer;
 }
 
 .menu {
@@ -217,6 +218,10 @@ video {
     background-color: #ea1d22;
 }
 
+.content .btn-buy:hover {
+    transform: skew(-10deg) scale(1.05);
+}
+
 .btn {
     display: flex;
 }
@@ -240,6 +245,10 @@ video {
     
 }
 
+.btn-watch:hover {
+    transform: skew(-10deg) scale(1.05);
+}
+
 .btn .btn-watch::before {
     transition: all .7s ease;
     content: '';
@@ -260,13 +269,82 @@ video {
 }
 
 @media screen and (max-width: 960px) {
-    nav, .socialMedia {
+    
+    
+    .socialMedia {
         display: none;
     }
 
     .menu {
         width: 100%;
         justify-content: space-between;
+        height: 100%;
+        position: relative;
+    }
+
+    nav, ul {
+        display: inline-block;
+    }
+
+    nav {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background: #0A0C10;
+        width: 100%;
+        padding-bottom: 4rem;
+        transition: all .4s ease-in-out;
+    }
+
+    nav ul li a {
+        opacity: 0;
+    }
+
+    nav.active {
+        left: 50%;
+    }
+
+    nav.active ul li a {
+        font-size: 20px;
+        animation: slideright .5s ease-in-out forwards;
+        animation-delay: .8s;
+    }
+ 
+    nav.active ul li:first-child {
+        animation: slideright .5s ease-in-out forwards;
+        animation-delay: .6s;
+    }
+    nav.active ul li:nth-child(2) {
+        animation: slideright .5s ease-in-out forwards;
+        animation-delay: .8s;
+    }
+    nav.active ul li:nth-child(3) {
+        animation: slideright .5s ease-in-out forwards;
+        animation-delay: 1s;
+    }
+    nav.active ul li:nth-child(4) {
+        animation: slideright .5s ease-in-out forwards;
+        animation-delay: 1.2s;
+    }
+
+    nav ul li a::before {
+        content: '';
+        height: 5px;
+        width: 100%;
+        background: rgb(111,14,16);
+        background: linear-gradient(90deg, #0A0C10 5%, rgba(234,29,34,1) 100%);
+        position: absolute;
+        top: 91px;
+        left: -30px;
+        transition: .5s linear;
+        opacity: 0;
+    }
+    
+    nav ul li a:hover::before {
+        opacity: 1;
+        top: 91px;
+        left: 5px;
+        border-radius: 5px;
     }
 
     .logo {
@@ -284,6 +362,7 @@ video {
         opacity: 0;
         animation: slideright .5s ease-in-out forwards;
         animation-delay: .5s;
+        cursor: pointer;
     }
 
     .btnMenu {
