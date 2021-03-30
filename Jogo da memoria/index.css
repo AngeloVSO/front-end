@@ -7,11 +7,21 @@
     box-sizing: border-box  ;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    height: 100vh;
+}
+
 #game-board {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 10px 200px;
+    transform: scale(.90);
+    max-width: 850px;
+    height: 680px;
 }
 
 .card {
@@ -52,9 +62,10 @@ img {
 .card-back {
     background-color: #05c3ff;
     font-size: 40px;
+    pointer-events: none;
 }
 
-.game-over {
+#game-over {
     position: absolute;
     top: 0;
     width: 100%;
@@ -62,7 +73,6 @@ img {
     background-color: rgba(0, 0, 0,.9);
     color: white;
     font-size: 50px;
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -76,4 +86,40 @@ img {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 425px) {
+    .card {
+        width: 85px;
+        height: 85px;
+    }
+
+    .card-back {
+        font-size: 30px;
+    }
+
+    img {
+        width: 65px;
+    }
+
+    #game-over {
+        text-align: center;
+        font-size: 35px;
+    }
+  }
+
+@media screen and (max-width: 375px) {
+  .card {
+    width: 73px;
+    height: 73px;
+  }
+
+  .card-back {
+      font-size: 30px;
+  }
+
+  img {
+    width: 50px;
+}
 }
